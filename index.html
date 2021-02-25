@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-63358219-1', 'auto'); ga('send', 'pageview');</script>
+
+	  <meta http-equiv="Content-Type" content="text/html" />
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta name="keywords" content="color, compare, online, free hex, rgb, rgba">
+	  <meta name="description" content="Easily compare multiple colors side-by-side online for free.">
+	  <meta content="© 2021, Hanni Abu. All rights reserved." name="copyright">
+	  <meta content="index,follow" name="robots">
+	  <title>Color Compare | Hanni Abu</title>
+
+	  <link rel="canonical" href="https://hanniabu.com">
+	  <link rel="icon" type="image/gif" href="assets/img/logo.gif">
+
+	  <meta property="og:locale" content="en_US">
+	  <meta property="og:type" content="website">
+	  <meta property="og:title" content="Hanni Abu">
+	  <meta property="og:description" content="Easily compare multiple colors side-by-side online for free.">
+	  <meta property="og:url" content="https://hanniabu.com/color-compare/">
+	  <meta property="og:site_name" content="Hanni Abu">
+	  <meta property="og:image" content="assets/img/logo.gif">
+	  <meta name="twitter:card" content="summary_large_image">
+	  <meta name="twitter:description" content="Easily compare multiple colors side-by-side online for free.">
+	  <meta name="twitter:title" content="Hanni Abu">
+	  <meta name="twitter:image" content="assets/img/logo.gif">
+	  <meta name="twitter:image:alt" content="Hanni Abu">
+	  <meta name="twitter:site" content="@hanni_abu">
+
+	  <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<style type="text/css">
+			body {
+				width: 100vw;
+				height: 100vh;
+				margin: 0px auto;
+				overflow: hidden;
+			    position: relative;
+			}
+			.panel {
+				width: 33.3%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+				margin-right: -4px;
+				padding-top: 8px;
+				display: inline-block;
+				text-align: center;
+			}
+			#left {
+				background-color: #fff;
+			}
+			#center {
+				background-color: #555;
+			}
+			#right {
+				background-color: #333;
+			}
+			#directions {
+				position: absolute;
+				width: 100%;
+				text-align: center;
+				z-index: 1000;
+				bottom: 20px;
+
+			}
+			#directions p {
+				background-color: rgba(255,255,255,0.65);
+				color: #555;
+				border-radius: 5px;
+				width: 520px;
+				line-height: 25px;
+				margin: 0 auto;
+			}
+			input, input:focus, input:hover, input:active {
+				/*remove style*/
+				appearance: none !important;
+				outline: none !important;
+				outline: 0 !important;
+				border-style: none !important;
+				border-color: none !important;
+				box-shadow: none !important;
+				/*add style*/
+				background-color: rgba(255,255,255,0.65);
+				color: #555;
+				text-align: center;
+				border-radius: 5px;
+				padding: 5px;
+				font-size: .9em;
+			}
+		</style>
+
+		<div id="left" class="panel">
+			<input id="left-color" type="text" name="left-color" placeholder="enter hex, rgb, or rgba" onkeyup="updateColor()" value="#fff">
+		</div>
+		<div id="center" class="panel">
+			<input id="center-color" type="text" name="center-color" placeholder="enter hex, rgb, or rgba" onkeyup="updateColor()" value="#555">
+		</div>
+		<div id="right" class="panel">
+			<input id="right-color" type="text" name="right-color" placeholder="enter hex, rgb, or rgba" onkeyup="updateColor()" value="#333">
+		</div>
+		<div id="directions">
+			<p>Set panel color using the input, then press 'Enter' to update colors.</p>
+		</div>
+
+
+		<script type="text/javascript">
+			window.onload = function() {
+				document.getElementById('left-color').value = localStorage.getItem("left-color");
+		    document.getElementById('center-color').value = localStorage.getItem("center-color");
+		    document.getElementById('right-color').value = localStorage.getItem("right-color");
+				document.getElementById("left").style.backgroundColor = localStorage.getItem("left-color");
+				document.getElementById("center").style.backgroundColor = localStorage.getItem("center-color");
+				document.getElementById("right").style.backgroundColor = localStorage.getItem("right-color");
+			};
+
+
+			function updateColor() {
+				if(event.keyCode==13){
+	        event.keyCode = null;
+			    var leftColor = document.getElementById('left-color').value;
+			    var centerColor = document.getElementById('center-color').value;
+			    var rightColor = document.getElementById('right-color').value;
+			    document.getElementById("left").style.backgroundColor = leftColor;
+			    document.getElementById("center").style.backgroundColor = centerColor;
+			    document.getElementById("right").style.backgroundColor = rightColor;
+			    localStorage.setItem("left-color", leftColor);
+			    localStorage.setItem("center-color", centerColor);
+			    localStorage.setItem("right-color", rightColor);
+		    }
+			}
+
+		</script>
+	</body>
+</html>
